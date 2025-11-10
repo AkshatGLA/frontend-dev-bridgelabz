@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Task1 - Pseudo-Classes</title>
+  <link rel="stylesheet" href="1_psuedoClasses.css">
+</head>
+<body>
+  <header><h1>Pseudo-Classes Demo</h1></header>
+  <main>
+    <section class="row">
+      <article class="card">
+        <div class="demo">
+          <button id="btn1">Hover / Focus / Active</button>
+        </div>
+        <p class="explain"><strong>Buttons:</strong> <code>:hover</code> changes color, <code>:focus</code> outlines for keyboard users, <code>:active</code> shows press state.</p>
+      </article>
+
+      <article class="card">
+        <div class="demo">
+          <a class="link-demo" href="https://example.com" target="_blank" rel="noopener">Link: Hover / Focus / Active</a>
+        </div>
+        <p class="explain"><strong>Links:</strong> <code>:hover</code>, <code>:focus</code>, <code>:active</code> visual states for links.</p>
+      </article>
+
+      <article class="card">
+        <div class="demo">
+          <ul class="demo-list">
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            <li>Four</li>
+            <li>Five</li>
+          </ul>
+        </div>
+        <p class="explain"><strong>List:</strong> <code>:nth-child(odd)</code> and <code>:nth-child(even)</code> alternate backgrounds; hover & active show states.</p>
+      </article>
+    </section>
+  </main>
+  <footer>Task 1 — Pseudo-classes</footer>
+</body>
+</html>

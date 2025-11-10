@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pseudo-Class Demonstration</title>
+  <style>
+    /* General page styling */
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* Each section arranged using flexbox */
+    .demo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      width: 80%;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .explanation {
+      width: 45%;
+      text-align: left;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .example {
+      width: 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Button examples */
+    button {
+      padding: 15px 30px;
+      font-size: 22px;
+      border: none;
+      border-radius: 10px;
+      background-color: lightgray;
+      color: black;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: dodgerblue;
+      color: white;
+    }
+    button:focus {
+      outline: 3px solid orange;
+    }
+    button:active {
+      background-color: green;
+      transform: scale(0.95);
+      color: white;
+    }
+
+    /* Link examples */
+    a {
+      font-size: 22px;
+      text-decoration: none;
+      color: blue;
+      transition: 0.3s;
+    }
+    a:hover {
+      color: red;
+      text-decoration: underline;
+    }
+    a:focus {
+      outline: 3px solid orange;
+      padding: 2px;
+    }
+    a:active {
+      color: green;
+    }
+
+    /* List examples */
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 22px;
+    }
+    ul li {
+      padding: 10px 20px;
+      margin: 5px 0;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    ul li:hover {
+      background-color: lightblue;
+    }
+    ul li:active {
+      background-color: lightgreen;
+    }
+    ul li:nth-child(odd) {
+      background-color: #d6f5d6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BUTTON DEMO -->
+  <div class="demo">
+    <div class="explanation">
+      <h2>Button States</h2>
+      <p>
+        <b>:hover</b> → changes background to blue when hovered.<br>
+        <b>:focus</b> → adds orange outline when tabbed or clicked.<br>
+        <b>:active</b> → turns green when pressed.<br>
+      </p>
+    </div>
+    <div class="example">
+      <button>Click Me!</button>
+    </div>
+  </div>
+
+  <!-- LINK DEMO -->
+  <div class="demo">
+    <div class="explanation">
+      <h2>Link States</h2>
+      <p>
+        <b>:hover</b> → turns red with underline.<br>
+        <b>:focus</b> → adds orange outline when focused.<br>
+        <b>:active</b> → turns green when being clicked.<br>
+      </p>
+    </div>
+    <div class="example">
+      <a href="https://www.google.com" target="_blank">Visit Google</a>
+    </div>
+  </div>
+
+  <!-- LIST DEMO -->
+  <div class="demo">
+    <div class="explanation">
+      <h2>List with nth-child()</h2>
+      <p>
+        <b>:nth-child(odd)</b> → colors every odd list item light green.<br>
+        <b>:hover</b> → highlights item in blue on hover.<br>
+        <b>:active</b> → turns item light green while clicking.<br>
+      </p>
+    </div>
+    <div class="example">
+      <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Guava</li>
+        <li>Kiwi</li>
+        <li>Mango</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
