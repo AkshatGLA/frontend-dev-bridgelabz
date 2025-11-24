@@ -1,5 +1,3 @@
-// library_system.js
-"use strict";
 
 /*
   Book class with issueBook and returnBook methods.

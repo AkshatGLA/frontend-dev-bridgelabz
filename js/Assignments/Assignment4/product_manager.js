@@ -1,5 +1,4 @@
-// product_manager.js
-"use strict";
+
 
 /*
   Product class for an e-commerce admin panel.

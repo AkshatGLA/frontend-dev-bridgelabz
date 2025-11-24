@@ -1,7 +1,4 @@
 
-// cart_system.js
-"use strict";
-
 /*
   Cart class:
    - addItem(name, price, quantity)
