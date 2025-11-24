@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator (Feet & Inches)</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f6f6f6;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 450px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #aaa;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #007bff;
+        color: white;
+        border: none;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    .result {
+        margin-top: 20px;
+        padding: 15px;
+        background: #e7f7ff;
+        border-radius: 8px;
+        display: none;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+        width: 100%;
+        background: #ddd;
+        border-radius: 20px;
+        margin-top: 15px;
+    }
+
+    .progress-bar {
+        height: 20px;
+        width: 0%;
+        background: green;
+        border-radius: 20px;
+        transition: width 0.6s ease;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>BMI Calculator</h2>
+
+    <label>Enter Weight (kg):</label>
+    <input type="number" id="weight" placeholder="Example: 70">
+
+    <label>Height (Feet):</label>
+    <input type="number" id="feet" placeholder="Example: 5">
+
+    <label>Height (Inches):</label>
+    <input type="number" id="inches" placeholder="Example: 7">
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div class="result" id="result"></div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+</div>
+
+<script>
+function calculateBMI() {
+    let weight = Number(document.getElementById("weight").value);
+    let feet = Number(document.getElementById("feet").value);
+    let inches = Number(document.getElementById("inches").value);
+
+    if (weight <= 0 || feet <= 0) {
+        alert("Please enter valid weight and height.");
+        return;
+    }
+
+    // Convert height (ft + inch) to meters
+    let totalInches = (feet * 12) + inches;
+    let heightMeters = totalInches * 0.0254;
+
+    // BMI Formula
+    let bmi = weight / (heightMeters * heightMeters);
+    let category = "";
+    let color = "";
+
+    // BMI Categories
+    if (bmi < 18.5) {
+        category = "Underweight";
+        color = "blue";
+    } 
+    else if (bmi >= 18.5 && bmi < 24.9) {
+        category = "Normal";
+        color = "green";
+    } 
+    else if (bmi >= 25 && bmi < 29.9) {
+        category = "Overweight";
+        color = "orange";
+    } 
+    else {
+        category = "Obese";
+        color = "red";
+    }
+
+    // Show Result
+    document.getElementById("result").style.display = "block";
+    document.getElementById("result").innerHTML = `
+        <strong>Your BMI:</strong> ${bmi.toFixed(2)} <br>
+        <strong>Category:</strong> ${category}
+    `;
+
+    // Progress bar scale (max 40 BMI)
+    let progressPercent = (bmi / 40) * 100;
+    if (progressPercent > 100) progressPercent = 100;
+
+    let bar = document.getElementById("progressBar");
+    bar.style.width = progressPercent + "%";
+    bar.style.background = color;
+}
+</script>
+
+</body>
+</html>
